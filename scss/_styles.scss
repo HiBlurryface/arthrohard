@@ -1,0 +1,31 @@
+$font: "Futura";
+
+%h2 {
+    font-size: 48px;
+    line-height: 61.54px;
+    font-weight: 450;
+    color: #111;
+    @media (max-width: 1440px) {
+        font-size: 24px;
+        line-height: 29.54px;
+    }
+    @media (max-width: 425px) {
+        font-size: 20px;
+        line-height: 25.64px;
+    }
+}
+
+%par {
+    font-size: 20px;
+    line-height: 25.64px;
+    font-weight: 400;
+    color: #111;
+    @media (max-width: 1440px) {
+        font-size: 16px;
+        line-height: 20.64px;
+    }
+    @media (max-width: 425px) {
+        font-size: 13px;
+        line-height: 16.67px;
+    }
+}
