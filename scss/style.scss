@@ -1,14 +1,137 @@
-// import styles 
+// import styles
 @import "_fonts";
 @import "_reset";
 @import "_header";
 
 $font: "Futura";
+
+%h2 {
+    font-size: 48px;
+    line-height: 61.54px;
+    font-weight: 450;
+    color: #111;
+    @media (max-width: 1440px) {
+        font-size: 24px;
+        line-height: 29.54px;
+    }
+    @media (max-width: 425px) {
+        font-size: 20px;
+        line-height: 25.64px;
+    }
+}
+
+%par {
+    font-size: 20px;
+    line-height: 25.64px;
+    font-weight: 400;
+    color: #111;
+    @media (max-width: 1440px) {
+        font-size: 16px;
+        line-height: 20.64px;
+    }
+    @media (max-width: 425px) {
+        font-size: 13px;
+        line-height: 16.67px;
+    }
+}
+
 body {
+    background: #f6f6f6;
     font-family: $font;
 }
 .container {
     max-width: 1634px;
     margin: 0px auto;
     padding: 0 15px;
+}
+
+.intro {
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+    &__bg {
+        max-width: 680px;
+        max-height: 867px;
+        @media (max-width: 1024px) {
+            max-width: 380px;
+        }
+        &-img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__text {
+        @media (min-width: 1024px) {
+            margin-left: 60px;
+        }
+    }
+    &__group {
+        max-width: 655px;
+    }
+    &__title {
+        font-size: 120px;
+        line-height: 153.84px;
+        text-transform: uppercase;
+        font-weight: 450px;
+        padding-bottom: 33px;
+        @media (max-width: 1440px) {
+            font-size: 80px;
+            line-height: 78.84px;
+            padding-bottom: 6px;
+        }
+        @media (max-width: 1024px) {
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            font-size: 50px;
+            line-height: 58.84px;
+        }
+        @media (max-width: 425px) {
+            display: none;
+        }
+        & span {
+            color: #ab303c;
+        }
+    }
+    &__subtitle {
+        @extend %h2;
+        padding-bottom: 20px;
+        @media (max-width: 1440px) {
+            padding-bottom: 10px;
+        }
+        @media (max-width: 1024px) {
+            text-align: center;
+        }
+    }
+    &__par {
+        padding-bottom: 20px;
+        @extend %par;
+        @media (max-width: 1024px) {
+            text-align: center;
+        }
+    }
+    &__btn {
+        background: #30ab4c;
+        width: 171px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #f6f6f6;
+        font-size: 20px;
+        line-height: 25.56px;
+        font-weight: 700;
+        @media (max-width: 1024px) {
+            margin: 0px auto;
+        }
+        @media (max-width: 425px) {
+            display: none;
+        }
+    }
 }
