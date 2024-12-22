@@ -40,6 +40,24 @@
   }
 }
 
+.intro__btn {
+  width: 171px;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #f6f6f6;
+  font-size: 20px;
+  line-height: 25.56px;
+  font-weight: 700;
+}
+
 /* Regular - 400 */
 @font-face {
   font-family: 'Futura';
@@ -398,8 +416,114 @@ input::-webkit-outer-spin-button {
   text-transform: uppercase;
 }
 
+.popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 15px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.popup > h5,
+.popup p,
+.popup button {
+  color: #000;
+  font-weight: 450;
+  font-size: 31px;
+  line-height: 39.74px;
+}
+
+@media (max-width: 768px) {
+  .popup > h5,
+  .popup p,
+  .popup button {
+    font-size: 24px;
+    line-height: 32.74px;
+  }
+}
+
+.popup__close {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  background: transparent;
+}
+
+.popup__val {
+  margin-top: auto;
+}
+
+.popup__container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  max-width: 843px;
+  max-height: 285px;
+  height: 100%;
+  width: 100%;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  padding: 8px 20px 40px;
+}
+
+@media (max-width: 768px) {
+  .popup__container {
+    max-height: 190px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .popup__container {
+    max-height: 150px;
+  }
+}
+
+.popup__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  padding-top: 63px;
+}
+
+@media (max-width: 768px) {
+  .popup__content {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .popup__content {
+    padding-top: 15px;
+  }
+}
+
 body {
-  background: #f6f6f6;
+  background: #fff;
   font-family: "Futura";
 }
 
@@ -407,6 +531,10 @@ body {
   max-width: 1634px;
   margin: 0px auto;
   padding: 0 15px;
+}
+
+.intro {
+  background: #f6f6f6;
 }
 
 .intro__container {
@@ -446,7 +574,7 @@ body {
   height: 100%;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .intro__text {
     margin-left: 60px;
   }
@@ -523,21 +651,6 @@ body {
 
 .intro__btn {
   background: #30ab4c;
-  width: 171px;
-  height: 46px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #f6f6f6;
-  font-size: 20px;
-  line-height: 25.56px;
-  font-weight: 700;
 }
 
 @media (max-width: 1024px) {
@@ -550,4 +663,156 @@ body {
   .intro__btn {
     display: none;
   }
+}
+
+.product {
+  background: #f6f6f6;
+  padding: 120px 0;
+}
+
+@media (max-width: 1024px) {
+  .product {
+    padding: 60px 0;
+  }
+}
+
+.product__header {
+  padding-bottom: 120px;
+}
+
+@media (max-width: 1024px) {
+  .product__header {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product__header {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .product__header {
+    padding-bottom: 15px;
+  }
+}
+
+.product__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 425px) {
+  .product__menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.product__menu-title {
+  font-size: 20px;
+  font-weight: 450;
+  line-height: 25.64px;
+  border: 1px solid #ad4844;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 10px;
+}
+
+@media (max-width: 425px) {
+  .product__menu-title {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.product__menu-btn {
+  background: #ad4844;
+  width: 127px;
+  font-size: 20px;
+  line-height: 25.64px;
+  color: #f6f6f6;
+  font-weight: 700;
+}
+
+@media (max-width: 425px) {
+  .product__menu-btn {
+    height: 46px;
+    width: 100%;
+  }
+}
+
+.product__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 35px 0;
+}
+
+@media (max-width: 1024px) {
+  .product__wrapper {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 30px 3.5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product__wrapper {
+    gap: 15px 4%;
+  }
+}
+
+.product__item {
+  position: relative;
+  width: 23%;
+  background: #bebebe;
+}
+
+@media (max-width: 1024px) {
+  .product__item {
+    width: 31%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product__item {
+    width: 48%;
+  }
+}
+
+.product__item:before {
+  content: "";
+  padding-bottom: 100%;
+  display: block;
+}
+
+.product__item-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 31px;
+  line-height: 39.74px;
+  font-weight: 450;
 }

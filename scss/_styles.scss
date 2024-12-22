@@ -29,3 +29,16 @@ $font: "Futura";
         line-height: 16.67px;
     }
 }
+
+%btn {
+    width: 171px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #f6f6f6;
+    font-size: 20px;
+    line-height: 25.56px;
+    font-weight: 700;
+}
