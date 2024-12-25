@@ -1,13 +1,32 @@
 $font: "Futura";
 
+%hoverEffect {
+    position: relative;
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+    &:after {
+        content: " ";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        background: #000;
+        left: 0;
+        bottom: -7px;
+        transition: 0.4s ease-in;
+    }
+}
+
 %h2 {
     font-size: 48px;
     line-height: 61.54px;
     font-weight: 450;
     color: #111;
     @media (max-width: 1440px) {
-        font-size: 24px;
-        line-height: 29.54px;
+        font-size: 32px;
+        line-height: 42.54px;
     }
     @media (max-width: 425px) {
         font-size: 20px;

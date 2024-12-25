@@ -46,22 +46,8 @@
             flex-direction: row;
         }
         &-item {
-            position: relative;
-            &:hover {
-                &:after {
-                    width: 100%;
-                }
-            }
-            &:after {
-                content: " ";
-                position: absolute;
-                width: 0%;
-                height: 1px;
-                background: #000;
-                left: 0;
-                bottom: -7px;
-                transition: 0.4s ease-in;
-            }
+            @extend %hoverEffect;
+
             &:not(:last-child) {
                 margin-right: 40px;
             }
