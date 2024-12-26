@@ -8,6 +8,9 @@
 body {
     background: #fff;
     font-family: $font;
+    &.locked {
+        overflow: hidden;
+    }
 }
 .container {
     max-width: 1634px;
@@ -442,8 +445,8 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 35px 0;
+        // justify-content: space-between;
+        gap: 35px 2.6%;
         @media (max-width: 1024px) {
             justify-content: flex-start;
             gap: 30px 3.5%;
@@ -456,6 +459,7 @@ body {
         position: relative;
         width: 23%;
         background: #bebebe;
+        cursor: pointer;
         @media (max-width: 1024px) {
             width: 31%;
         }

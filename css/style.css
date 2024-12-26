@@ -417,9 +417,7 @@ input::-webkit-outer-spin-button {
 }
 
 .popup {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -433,7 +431,12 @@ input::-webkit-outer-spin-button {
   background: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  display: none;
+}
+
+.popup.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .popup > h5,
@@ -525,6 +528,10 @@ input::-webkit-outer-spin-button {
 body {
   background: #fff;
   font-family: "Futura";
+}
+
+body.locked {
+  overflow: hidden;
 }
 
 .container {
@@ -1185,10 +1192,7 @@ body {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  gap: 35px 0;
+  gap: 35px 2.6%;
 }
 
 @media (max-width: 1024px) {
@@ -1210,6 +1214,7 @@ body {
   position: relative;
   width: 23%;
   background: #bebebe;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {

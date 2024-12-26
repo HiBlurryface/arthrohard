@@ -1,5 +1,5 @@
 .popup {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 0 15px;
@@ -9,8 +9,9 @@
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
-
-    display: none;
+    &.active {
+        display: flex;
+    }
     & > h5,
     p,
     button {
