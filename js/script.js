@@ -34,6 +34,16 @@ popupClose.addEventListener('click', function () {
     body.classList.remove('locked');
 })
 
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (scrollTop + windowHeight >= documentHeight) {
+        getData()
+    }
+});
+
 async function getData() {
     const url = "https://brandstestowy.smallhost.pl/api/random";
     try {
@@ -67,5 +77,3 @@ async function getData() {
         console.error(error.message);
     }
 }
-
-getData()
