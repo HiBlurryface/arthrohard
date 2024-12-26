@@ -153,7 +153,8 @@ body {
             padding-bottom: 20px;
             margin-bottom: 30px;
             @media (max-width: 1440px) {
-                font-size: 21px;
+                font-size: 20px;
+                line-height: 25.64px;
             }
             &:before {
                 content: " ";
@@ -172,6 +173,10 @@ body {
             line-height: 25.64px;
             text-align: center;
             padding-bottom: 50px;
+            @media (max-width: 425px) {
+                font-size: 13px;
+                line-height: 16.67px;
+            }
         }
         &-list {
             max-width: 300px;
@@ -240,6 +245,9 @@ body {
         position: relative;
         padding-bottom: 20px;
         margin-bottom: 100px;
+        @media (max-width: 1024px) {
+            margin-bottom: 20px;
+        }
         &:before {
             content: " ";
             position: absolute;
@@ -256,11 +264,17 @@ body {
         font-size: 31px;
         line-height: 39.74px;
         font-weight: 450;
+        @media (max-width: 1440px) {
+            font-size: 20px;
+            line-height: 25.64px;
+        }
     }
     &__wrapper {
         position: relative;
     }
     &__bg {
+        max-width: 698px;
+        width: 100%;
         @media (min-width: 1025px) {
             position: absolute;
             top: 0;
@@ -284,15 +298,21 @@ body {
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(3, 1fr);
         justify-content: space-between;
-        grid-column-gap: 20px;
-        grid-row-gap: 14px;
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+        @media (max-width: 1024px) {
+            padding-top: 40px;
+        }
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(6, 1fr);
+            grid-template-rows: repeat(6, auto);
         }
     }
     &__block {
         max-width: 417px;
+        @media (max-width: 768px) {
+            margin: 0px auto;
+        }
         &-icon {
             margin: 0 auto 20px;
             width: 70px;
@@ -310,6 +330,10 @@ body {
             position: relative;
             color: #111;
             width: fit-content;
+            @media (max-width: 1440px) {
+                font-size: 20px;
+                line-height: 25.64px;
+            }
             &:before {
                 position: absolute;
                 content: " ";
@@ -327,6 +351,10 @@ body {
             text-align: center;
             color: #111;
             padding-bottom: 20px;
+            @media (max-width: 1440px) {
+                font-size: 13px;
+                line-height: 16.67px;
+            }
         }
         &-text {
             font-weight: 400;
@@ -334,6 +362,10 @@ body {
             line-height: 25.64px;
             text-align: center;
             color: #111;
+            @media (max-width: 1440px) {
+                font-size: 13px;
+                line-height: 16.67px;
+            }
         }
     }
     &__btn {

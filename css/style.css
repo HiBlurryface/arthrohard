@@ -761,7 +761,8 @@ body {
 
 @media (max-width: 1440px) {
   .about__block-title {
-    font-size: 21px;
+    font-size: 20px;
+    line-height: 25.64px;
   }
 }
 
@@ -783,6 +784,13 @@ body {
   line-height: 25.64px;
   text-align: center;
   padding-bottom: 50px;
+}
+
+@media (max-width: 425px) {
+  .about__block-text {
+    font-size: 13px;
+    line-height: 16.67px;
+  }
 }
 
 .about__block-list {
@@ -877,6 +885,12 @@ body {
   margin-bottom: 100px;
 }
 
+@media (max-width: 1024px) {
+  .composition__title {
+    margin-bottom: 20px;
+  }
+}
+
 .composition__title:before {
   content: " ";
   position: absolute;
@@ -896,8 +910,20 @@ body {
   font-weight: 450;
 }
 
+@media (max-width: 1440px) {
+  .composition__subtitle {
+    font-size: 20px;
+    line-height: 25.64px;
+  }
+}
+
 .composition__wrapper {
   position: relative;
+}
+
+.composition__bg {
+  max-width: 698px;
+  width: 100%;
 }
 
 @media (min-width: 1025px) {
@@ -937,21 +963,33 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  grid-column-gap: 20px;
-  grid-row-gap: 14px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .composition__content {
+    padding-top: 40px;
+  }
 }
 
 @media (max-width: 768px) {
   .composition__content {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: (1fr)[6];
-        grid-template-rows: repeat(6, 1fr);
+    -ms-grid-rows: (auto)[6];
+        grid-template-rows: repeat(6, auto);
   }
 }
 
 .composition__block {
   max-width: 417px;
+}
+
+@media (max-width: 768px) {
+  .composition__block {
+    margin: 0px auto;
+  }
 }
 
 .composition__block-icon {
@@ -976,6 +1014,13 @@ body {
   width: fit-content;
 }
 
+@media (max-width: 1440px) {
+  .composition__block-title {
+    font-size: 20px;
+    line-height: 25.64px;
+  }
+}
+
 .composition__block-title:before {
   position: absolute;
   content: " ";
@@ -995,12 +1040,26 @@ body {
   padding-bottom: 20px;
 }
 
+@media (max-width: 1440px) {
+  .composition__block-size {
+    font-size: 13px;
+    line-height: 16.67px;
+  }
+}
+
 .composition__block-text {
   font-weight: 400;
   font-size: 20px;
   line-height: 25.64px;
   text-align: center;
   color: #111;
+}
+
+@media (max-width: 1440px) {
+  .composition__block-text {
+    font-size: 13px;
+    line-height: 16.67px;
+  }
 }
 
 .composition__btn {
