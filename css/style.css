@@ -537,7 +537,12 @@ input::-webkit-outer-spin-button {
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
+  overflow-x: hidden;
   background: #fff;
   font-family: "Futura";
 }
@@ -553,6 +558,7 @@ body.locked {
 }
 
 .intro {
+  position: relative;
   background: #f6f6f6;
 }
 
@@ -591,6 +597,42 @@ body.locked {
 .intro__bg-img {
   width: 100%;
   height: 100%;
+}
+
+.intro__bg-left {
+  position: absolute;
+  bottom: -560px;
+  left: -370px;
+}
+
+@media (max-width: 1024px) {
+  .intro__bg-left {
+    display: none;
+  }
+}
+
+.intro__bg-right {
+  position: absolute;
+  right: -324px;
+  bottom: -407px;
+}
+
+@media (max-width: 1024px) {
+  .intro__bg-right {
+    display: none;
+  }
+}
+
+.intro__bg-small {
+  position: absolute;
+  right: -101px;
+  bottom: 0px;
+}
+
+@media (max-width: 1024px) {
+  .intro__bg-small {
+    display: none;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -716,6 +758,11 @@ body.locked {
           transform: translate(-50%, 0);
 }
 
+.about__container {
+  position: relative;
+  z-index: 5;
+}
+
 .about__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -822,6 +869,7 @@ body.locked {
 }
 
 .about__block-group {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -881,11 +929,32 @@ body.locked {
 }
 
 .about__block-img {
+  position: relative;
   height: 290px;
   width: 100%;
   max-width: 360px;
   margin: auto auto 0;
   display: block;
+}
+
+.about__block-img-left {
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  z-index: -1;
+  width: 125px;
+  -webkit-transform: translate(0%, -50%) rotate(-5deg);
+          transform: translate(0%, -50%) rotate(-5deg);
+}
+
+.about__block-img-right {
+  position: absolute;
+  right: -95px;
+  top: 50%;
+  z-index: -1;
+  width: 125px;
+  -webkit-transform: translate(0%, -50%) rotate(30deg) scale(-1);
+          transform: translate(0%, -50%) rotate(30deg) scale(-1);
 }
 
 .about__block-pic {
@@ -1011,6 +1080,10 @@ body.locked {
   max-width: 417px;
 }
 
+.composition__block:hover .composition__block-title:before {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .composition__block {
     margin: 0px auto;
@@ -1047,9 +1120,11 @@ body.locked {
 }
 
 .composition__block-title:before {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
   position: absolute;
   content: " ";
-  width: 100%;
+  width: 0%;
   height: 1px;
   background: #111;
   bottom: 0;

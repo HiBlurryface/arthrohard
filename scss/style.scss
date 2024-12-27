@@ -5,7 +5,11 @@
 @import "_header";
 @import "_popup";
 
+html {
+    overflow-x: hidden;
+}
 body {
+    overflow-x: hidden;
     background: #fff;
     font-family: $font;
     &.locked {
@@ -19,6 +23,7 @@ body {
 }
 
 .intro {
+    position: relative;
     background: #f6f6f6;
     &__container {
         display: flex;
@@ -37,6 +42,30 @@ body {
         &-img {
             width: 100%;
             height: 100%;
+        }
+        &-left {
+            position: absolute;
+            bottom: -560px;
+            left: -370px;
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+        &-right {
+            position: absolute;
+            right: -324px;
+            bottom: -407px;
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+        &-small {
+            position: absolute;
+            right: -101px;
+            bottom: 0px;
+            @media (max-width: 1024px) {
+                display: none;
+            }
         }
     }
     &__text {
@@ -126,6 +155,10 @@ body {
             transform: translate(-50%, 0);
         }
     }
+    &__container {
+        position: relative;
+        z-index: 5;
+    }
     &__content {
         display: flex;
         justify-content: space-between;
@@ -192,6 +225,7 @@ body {
         }
         &-group {
             @extend %hoverEffect;
+            position: relative;
             display: flex;
             justify-content: space-between;
             max-width: 360px;
@@ -229,12 +263,29 @@ body {
             }
         }
         &-img {
+            position: relative;
             @extend %hoverEffect;
             height: 290px;
             width: 100%;
             max-width: 360px;
             margin: auto auto 0;
             display: block;
+            &-left {
+                position: absolute;
+                left: -80px;
+                top: 50%;
+                z-index: -1;
+                width: 125px;
+                transform: translate(0%, -50%) rotate(-5deg);
+            }
+            &-right {
+                position: absolute;
+                right: -95px;
+                top: 50%;
+                z-index: -1;
+                width: 125px;
+                transform: translate(0%, -50%) rotate(30deg) scale(-1);
+            }
         }
         &-pic {
             border-radius: 8px;
@@ -319,6 +370,13 @@ body {
     }
     &__block {
         max-width: 417px;
+        &:hover {
+            & .composition__block-title {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
         @media (max-width: 768px) {
             margin: 0px auto;
         }
@@ -344,9 +402,10 @@ body {
                 line-height: 25.64px;
             }
             &:before {
+                transition: 0.3s ease;
                 position: absolute;
                 content: " ";
-                width: 100%;
+                width: 0%;
                 height: 1px;
                 background: #111;
                 bottom: 0;
