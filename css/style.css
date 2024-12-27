@@ -78,6 +78,18 @@
   font-weight: 700;
 }
 
+.intro__subtitle {
+  background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 116.12%);
+  color: transparent;
+  background-clip: text;
+}
+
+.about__title, .composition__title {
+  background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 58.84%, #696969 91.39%, #b1b1b1 116.12%);
+  color: transparent;
+  background-clip: text;
+}
+
 @font-face {
   font-family: "Futura";
   src: url("../fonts/FuturaPT-Book.eot");
@@ -685,7 +697,10 @@ body.locked {
 
 .about__title {
   position: relative;
-  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0px auto;
   padding-bottom: 20px;
 }
 
@@ -886,7 +901,10 @@ body.locked {
 }
 
 .composition__title {
-  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0px auto;
   position: relative;
   padding-bottom: 20px;
   margin-bottom: 100px;

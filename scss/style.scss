@@ -53,6 +53,7 @@ body {
         text-transform: uppercase;
         font-weight: 450px;
         padding-bottom: 33px;
+
         @media (max-width: 1440px) {
             font-size: 80px;
             line-height: 78.84px;
@@ -74,6 +75,7 @@ body {
     }
     &__subtitle {
         @extend %h2;
+        @extend %textGradientToRight;
         padding-bottom: 20px;
         @media (max-width: 1440px) {
             padding-bottom: 10px;
@@ -108,8 +110,10 @@ body {
     }
     &__title {
         @extend %h2;
+        @extend %textGradientCenter;
         position: relative;
-        text-align: center;
+        width: fit-content;
+        margin: 0px auto;
         padding-bottom: 20px;
         &:before {
             content: " ";
@@ -244,7 +248,9 @@ body {
     padding: 50px 0 0 0;
     &__title {
         @extend %h2;
-        text-align: center;
+        @extend %textGradientCenter;
+        width: fit-content;
+        margin: 0px auto;
         position: relative;
         padding-bottom: 20px;
         margin-bottom: 100px;

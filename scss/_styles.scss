@@ -61,3 +61,17 @@ $font: "Futura";
     line-height: 25.56px;
     font-weight: 700;
 }
+
+%textGradientToRight {
+    // background-image: linear-gradient(to right, #111, #b1b1b1);
+    background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 116.12%);
+    color: transparent;
+    background-clip: text;
+}
+%textGradientCenter {
+    // background-image: radial-gradient(circle, #111, #b1b1b1);
+    background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 58.84%, #696969 91.39%, #b1b1b1 116.12%);
+
+    color: transparent;
+    background-clip: text;
+}
