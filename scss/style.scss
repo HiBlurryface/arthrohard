@@ -6,15 +6,18 @@
 @import "_popup";
 
 html {
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 body {
-    overflow-x: hidden;
-    background: #fff;
+    // overflow-x: hidden;
+    background: #f1f1f1;
     font-family: $font;
     &.locked {
         overflow: hidden;
     }
+}
+.wrapper {
+    overflow-x: hidden;
 }
 .container {
     max-width: 1634px;
@@ -295,7 +298,60 @@ body {
         }
     }
 }
+.effect {
+    padding: 70px 0;
+    background: #fff;
+    @media (min-width: 426px) {
+        display: none;
+    }
+    &__title {
+        text-align: center;
+        padding-bottom: 20px;
+        @extend %h2;
+        position: relative;
+        &:before {
+            content: " ";
+            position: absolute;
+            width: 126px;
+            height: 1px;
+            background: #111111;
+            left: 50%;
+            bottom: 0px;
+            transform: translate(-50%, 0);
+        }
+    }
+    &__list {
+        margin-top: 50px;
+        &-item {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 25.64px;
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+            & span {
+                flex: 0 0 auto;
+                margin-right: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                background: #fff;
+                border-radius: 50px;
+                font-size: 20px;
+                line-height: 25.64px;
+                color: #000;
+                font-weight: 700;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+}
 .composition {
+    background: #fff;
     padding: 50px 0 0 0;
     &__title {
         @extend %h2;
@@ -340,7 +396,7 @@ body {
             top: 0;
             left: 50%;
             transform: translate(-50%, 0px);
-            z-index: -1;
+            z-index: 0;
         }
         @media (max-width: 1440px) {
             opacity: 0.5;
@@ -352,6 +408,7 @@ body {
         }
     }
     &__content {
+        z-index: 10;
         position: relative;
         padding-top: 120px;
         display: grid;
@@ -369,6 +426,11 @@ body {
         }
     }
     &__block {
+        &.hidden {
+            @media (min-width: 426px) {
+                display: none;
+            }
+        }
         max-width: 417px;
         &:hover {
             & .composition__block-title {
@@ -381,6 +443,9 @@ body {
             margin: 0px auto;
         }
         &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 20px;
             width: 70px;
             height: 70px;
@@ -400,6 +465,8 @@ body {
             @media (max-width: 1440px) {
                 font-size: 20px;
                 line-height: 25.64px;
+                margin: 0px auto 5px;
+                padding-bottom: 0px;
             }
             &:before {
                 transition: 0.3s ease;
@@ -422,6 +489,7 @@ body {
             @media (max-width: 1440px) {
                 font-size: 13px;
                 line-height: 16.67px;
+                padding-bottom: 10px;
             }
         }
         &-text {
@@ -455,6 +523,8 @@ body {
         margin: 0px auto;
         width: 100%;
         max-width: 945px;
+        position: relative;
+        z-index: 2;
     }
 }
 .product {

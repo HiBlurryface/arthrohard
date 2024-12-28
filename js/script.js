@@ -2,6 +2,7 @@ let body = document.querySelector('body')
 
 let burger = document.querySelector('#burger');
 let burgerBtn = document.querySelector('#burgerBtn');
+let burgerBg = document.querySelector('#burgerBg');
 
 let productsContainer = document.querySelector('#products');
 
@@ -10,6 +11,8 @@ let popupClose = document.querySelector('.popup__close');
 
 burgerBtn.addEventListener('click', function () {
     burger.classList.toggle("active");
+    body.classList.toggle('locked');
+    burgerBg.classList.toggle('active');
 })
 
 function getProductItem(product) {
@@ -38,8 +41,9 @@ window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
-
+    console.log(documentHeight)
     if (scrollTop + windowHeight >= documentHeight) {
+
         getData()
     }
 });
