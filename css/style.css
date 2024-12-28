@@ -1348,6 +1348,11 @@ body.locked {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 46px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0px auto;
 }
 
 @media (max-width: 425px) {
@@ -1356,18 +1361,34 @@ body.locked {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    height: unset;
   }
 }
 
 .product__menu-title {
+  border: 1px solid #ad4844;
   font-size: 20px;
   font-weight: 450;
   line-height: 25.64px;
-  border: 1px solid #ad4844;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 426px) {
+  .product__menu-title {
+    border-right: none;
+  }
 }
 
 @media (max-width: 425px) {
@@ -1377,7 +1398,22 @@ body.locked {
   }
 }
 
+.product__menu-select {
+  position: relative;
+}
+
 .product__menu-btn {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
   background: #ad4844;
   width: 127px;
   font-size: 20px;
@@ -1391,6 +1427,37 @@ body.locked {
     height: 46px;
     width: 100%;
   }
+}
+
+.product__menu-list {
+  border: 1px solid #ad4844;
+  background: #ad4844;
+  width: 100%;
+  position: absolute;
+  top: 47px;
+  left: 0;
+  z-index: 20;
+  display: none;
+}
+
+.product__menu-list.active {
+  display: unset;
+}
+
+@media (max-width: 425px) {
+  .product__menu-list {
+    top: 42px;
+  }
+}
+
+.product__menu-item {
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 25.64px;
+  color: #f6f6f6;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .product__wrapper {

@@ -5,6 +5,10 @@ let burgerBtn = document.querySelector('#burgerBtn');
 let burgerBg = document.querySelector('#burgerBg');
 
 let productsContainer = document.querySelector('#products');
+let productId = document.querySelector('#productId');
+let productText = document.querySelector('#productText');
+let productBtn = document.querySelector('.product__menu-btn');
+let productMenu = document.querySelector('.product__menu-list');
 
 let popup = document.querySelector('.popup');
 let popupClose = document.querySelector('.popup__close');
@@ -15,6 +19,10 @@ burgerBtn.addEventListener('click', function () {
     burgerBg.classList.toggle('active');
 })
 
+productBtn.addEventListener('click', function () {
+    productMenu.classList.toggle("active");
+})
+
 function getProductItem(product) {
     return `<div class="product__item" data-id="${product.id}" data-text="${product.text}">
         <h4 class="product__item-title">ID:${product.id}</h4>
@@ -22,9 +30,6 @@ function getProductItem(product) {
 }
 
 function openProduct(product) {
-    let productId = document.querySelector('#productId');
-    let productText = document.querySelector('#productText');
-
     productId.innerHTML = product.id;
     productText.innerHTML = product.text;
 
@@ -41,9 +46,8 @@ window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
-    console.log(documentHeight)
-    if (scrollTop + windowHeight >= documentHeight) {
 
+    if (scrollTop + windowHeight >= documentHeight) {
         getData()
     }
 });
