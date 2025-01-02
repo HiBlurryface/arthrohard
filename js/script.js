@@ -1,5 +1,7 @@
 let body = document.querySelector('body')
 
+let section = document.querySelectorAll('section');
+
 let burger = document.querySelector('#burger');
 let burgerBtn = document.querySelector('#burgerBtn');
 let burgerBg = document.querySelector('#burgerBg');
@@ -40,6 +42,24 @@ function openProduct(product) {
 popupClose.addEventListener('click', function () {
     popup.classList.remove('active');
     body.classList.remove('locked');
+})
+
+$('.header__menu-link').click(function () {
+    let elem = $(this).attr('href');
+    let dist = $(elem).offset().top - 100;
+
+    $('html,body').animate({ 'scrollTop': dist }, 1000)
+
+    return false;
+})
+
+$(window).scroll(function () {
+    $('section[id]').each(function () {
+        var id = $(this).attr('id');
+        if ($(this).offset().top - 100 < $(window).scrollTop()) {
+            $(`.header__menu-link[href="${'#' + id}"]`).parent().addClass('active').siblings().removeClass('active')
+        }
+    })
 })
 
 window.addEventListener('scroll', () => {

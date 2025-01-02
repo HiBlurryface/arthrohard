@@ -5,9 +5,6 @@
 @import "_header";
 @import "_popup";
 
-html {
-    // overflow-x: hidden;
-}
 body {
     // overflow-x: hidden;
     background: #f1f1f1;
@@ -18,6 +15,13 @@ body {
 }
 .wrapper {
     overflow-x: hidden;
+    padding-top: 122px;
+    @media (max-width: 1024px) {
+        padding-top: 84px;
+    }
+    @media (max-width: 425px) {
+        padding-top: 52px;
+    }
 }
 .container {
     max-width: 1634px;
