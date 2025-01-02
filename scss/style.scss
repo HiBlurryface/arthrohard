@@ -529,7 +529,18 @@ body {
         max-width: 945px;
         position: relative;
         z-index: 2;
+
+        background: url("../img//arthrohard__effects.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
     }
+    // &__parallax {
+    //     background: url("../img//arthrohard_dog_bg.png");
+    //     background-repeat: no-repeat;
+    //     background-position: top;
+    //     background-attachment: fixed;
+    // }
 }
 .product {
     background: #f6f6f6;
