@@ -1,28 +1,6 @@
-let body = document.querySelector('body')
+// header scripts
 
-let section = document.querySelectorAll('section');
-
-let burger = document.querySelector('#burger');
-let burgerBtn = document.querySelector('#burgerBtn');
-let burgerBg = document.querySelector('#burgerBg');
-
-let productsContainer = document.querySelector('#products');
-let productId = document.querySelector('#productId');
-let productText = document.querySelector('#productText');
-let productBtn = document.querySelector('.product__menu-btn');
-
-let productMenu = document.querySelector('.product__menu-list');
-
-let popup = document.querySelector('.popup');
-let popupClose = document.querySelector('.popup__close');
-
-burgerBtn.addEventListener('click', function () {
-    burger.classList.toggle("active");
-    body.classList.toggle('locked');
-    burgerBg.classList.toggle('active');
-})
-
-$('.header__menu-link').click(function () {
+$('.header__menu-link, .burger__list-link').click(function () {
     let elem = $(this).attr('href');
     let dist = $(elem).offset().top - 100;
 
@@ -40,25 +18,51 @@ $(window).scroll(function () {
     })
 })
 
-// api scripts
+$('.burger__icon').click(function () {
+    $('.burger').toggleClass("active");
+    $('.burger__bg').toggleClass('active');
+    $('body').toggleClass('locked');
+})
 
-function getProductItem(product) {
-    return `<div class="product__item" data-id="${product.id}" data-text="${product.text}">
-        <h4 class="product__item-title">ID:${product.id}</h4>
-    </div>`
+$('.burger__list-link').click(function () {
+    $('.burger').removeClass("active");
+    $('.burger__bg').removeClass('active');
+    $('body').removeClass('locked');
+})
+
+// end
+
+// api request
+let pageSize = [10, 20, 30, 40, 50];
+let currentPageSize = pageSize[0];
+let currentPageNum = 1;
+
+$('.product__menu-btn').click(function () {
+    $('.product__menu-list').addClass('active');
+})
+
+pageSize.forEach((item) => {
+    console.log(item)
+    $('.product__menu-list').append(getPageSizeList(item))
+});
+
+function getPageSizeList(size) {
+    return `<li class="product__menu-item" data-val="${size}">${size}</li>`
 }
 
-function openProduct(product) {
-    productId.innerHTML = product.id;
-    productText.innerHTML = product.text;
-
-    body.classList.add('locked');
-    popup.classList.add('active');
+function choosePageSize() {
+    $('.product__menu-btn').text(currentPageSize);
 }
+choosePageSize();
 
-popupClose.addEventListener('click', function () {
-    popup.classList.remove('active');
-    body.classList.remove('locked');
+$('.product__menu-item').click(function () {
+    $('.product__wrapper').empty();
+    currentPageSize = $(this).attr('data-val');
+    currentPageNum = 1;
+
+    $('.product__menu-list').removeClass('active');
+
+    choosePageSize();
 })
 
 window.addEventListener('scroll', () => {
@@ -71,26 +75,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
-let pageSize = [10, 20, 30, 40, 50];
-let currentPageSize = 5;
-let currentPageNum = 1;
-
-function choosePageSize() {
-    $('.product__menu-btn').text(currentPageSize);
+function getProductItem(product) {
+    return `<div class="product__item" data-id="${product.id}" data-text="${product.text}">
+        <h4 class="product__item-title">ID:${product.id}</h4>
+    </div>`
 }
-choosePageSize();
-productBtn.addEventListener('click', function () {
-    productMenu.classList.toggle("active");
-})
 
-let markup = '';
-$('.product__menu-item').click(function () {
-    currentPageSize = $(this).attr('data-val');
-    currentPageNum = 1;
+function openProduct(product) {
+    $('#productId').text(product.id)
+    $('#productText').text(product.id)
 
-    choosePageSize();
-    getData();
-    markup = '';
+    $('.popup').addClass('active');
+    $('body').addClass('locked');
+}
+
+$('.popup__close').click(function () {
+    $('.popup').removeClass('active');
+    $('body').removeClass('locked');
 })
 
 
@@ -98,31 +99,30 @@ async function getData() {
     const url = `https://brandstestowy.smallhost.pl/api/random?pageNumber=${currentPageNum}&pageSize=${currentPageSize}`;
     try {
         const response = await fetch(url);
+
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
-        const json = await response.json();
 
+        const json = await response.json();
         let data = json.data;
 
         data.forEach((product) => {
-            markup += getProductItem(product);
+            $('.product__wrapper').append(getProductItem(product));
         });
 
-        productsContainer.innerHTML = markup;
-
-        let products = document.querySelectorAll('.product__item');
-        products.forEach(product => {
-            product.addEventListener('click', (event) => {
-                let data = {
-                    id: event.target.dataset.id,
-                    text: event.target.dataset.text
-                }
-                openProduct(data)
-            })
+        $('.product__item').click(function (event) {
+            let data = {
+                id: event.target.dataset.id,
+                text: event.target.dataset.text
+            }
+            openProduct(data)
         })
 
         currentPageNum++;
     } catch (error) {
+
     }
 }
+
+// end
